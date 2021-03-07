@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+<style type="text/css">
+	[v-cloak]{
+			display: none;
+		}
+	*{
+		margin: 0;
+		padding: 0;
+		font-size: 15px;
+	}
+	#a1{
+		width: 100%;
+		height: 300px;
+		
+	}
+	.a2{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: space-between;
+	}
+	.a3{
+		width: 220px;
+		height: 220px;
+		text-align: center;
+		border: solid;
+		border-color: black;
+		border-width: 2px;
+		margin: 25px;
+
+	}
+	.a4{
+		width: 120px;
+		height: 120px;
+
+	}
+	.a5{
+		width: 30px;
+		height: 30px;
+	}
+	.a6{
+		width: 80%;
+		height: 100px;
+		font-size: 30px;
+		text-align: center;
+		border:solid;
+        top: 0;            
+        bottom: 0;            
+        left: 0;            
+        right: 0; 
+        margin: auto;
+        background-color: lightblue;  
+
+	}
+	.a7{
+		width: 80%;
+		height: 500px;
+		font-size: 30px;
+		text-align: center;
+		border:solid;
+        top: 0;            
+        bottom: 0;            
+        left: 0;            
+        right: 0; 
+        margin: auto;
+        background-color: lightblue;  
+
+	}
+	.a8{
+		width: 300px;
+		height: 300px;
+		margin-top:100px; 
+
+	}
+</style>
+<div id="app" class=".container-fluid" v-cloak>
+<div v-if="type==1" key="1">
+<img id="a1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHEmQTXgyP1ayWPumq-bWcoCt1vIScw3K6Ww&usqp=CAU">
+<hr>
+<div class="a2">
+	<div class="a3"><img class="a4" src="1.jfif"><br>型号：1<br>价格：200<br>加入购物车：<br><button class="a5" type="button" @click="amount1>0?--amount1:0">-</button>{{amount1}}<button class="a5" type="button" @click="++amount1">+</button></div>
+	<div class="a3"><img class="a4" src="2.jfif"><br>型号：2<br>价格：300<br>加入购物车：<br><button class="a5" type="button" @click="amount2>0?--amount2:0">-</button>{{amount2}}<button class="a5" type="button"  @click="++amount2">+</button></div>
+	<div class="a3" ><img class="a4" src="3.jfif"><br>型号：3<br>价格：400<br>加入购物车：<br><button class="a5" type="button" @click="amount3>0?--amount3:0">-</button>{{amount3}}<button class="a5" type="button"  @click="++amount3">+</button></div>
+</div>
+<div class="a2">
+	<div class="a3" ><img class="a4" src="4.jfif"><br>型号：4<br>价格：350<br>加入购物车：<br><button class="a5" type="button" @click="amount4>0?--amount4:0">-</button>{{amount4}}<button class="a5" type="button"  @click="++amount4">+</button></div>
+	<div class="a3"><img class="a4" src="5.jfif" ><br>型号：5<br>价格：250<br>加入购物车：<br><button class="a5" type="button" @click="amount5>0?--amount5:0">-</button>{{amount5}}<button class="a5" type="button"  @click="++amount5">+</button></div>
+	<div class="a3"><img class="a4" src="6.jfif"><br>型号：6<br>价格：550<br>加入购物车：<br><button class="a5" type="button" @click="amount6>0?--amount6:0">-</button>{{amount6}}<button class="a5" type="button"  @click="++amount6">+</button></div>
+</div>
+<div class="a2">
+	<div class="a3"><img class="a4" src="7.jfif"><br>型号：7<br>价格：1000<br>加入购物车：<br><button class="a5" type="button" @click="amount7>0?--amount7:0">-</button>{{amount7}}<button class="a5" type="button"  @click="++amount7">+</button></div>
+	<div class="a3"><img class="a4" src="8.jfif" ><br>型号：8<br>价格：300<br>加入购物车：<br><button class="a5" type="button" @click="amount8>0?--amount8:0">-</button>{{amount8}}<button class="a5" type="button"  @click="++amount8">+</button></div>
+	<div class="a3"><img class="a4" src="9.jfif"><br>型号：9<br>价格：270<br>加入购物车：<br><button class="a5" type="button" @click="amount9>0?--amount9:10">-</button>{{amount9}}<button class="a5" type="button"  @click="++amount9">+</button></div>
+</div><hr>
+<div class=".container a6">总价格是：{{total}}<br>
+<button type="button" v-on:click="type=type==1?2:1">确认购买</button>
+</div>
+</div>
+<div v-else key="2" class="a7">
+	<img class="a8" src="1.png">
+	您的结算总金额是:{{total}}
+	<button type="button" @click="type=1">取消结算</button>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script type="text/javascript">
+	new Vue({
+		el:'#app',
+		data(){
+			return{
+				amount1:0,
+				amount2:0,
+				amount3:0,
+				amount4:0,
+				amount5:0,
+				amount6:0,
+				amount7:0,
+				amount8:0,
+				amount9:0,
+				price1:200,
+				price2:300,
+				price3:400,
+				price4:350,
+				price5:250,
+				price6:550,
+				price7:1000,
+				price8:300,
+				price9:270,
+				type:1
+
+			}
+		},
+		computed:{
+			total(){
+				return this.amount1*this.price1+this.amount2*this.price2+this.amount3*this.price3+this.amount4*this.price4+this.amount5*this.price5+this.amount6*this.price6+this.amount7*this.price7+this.amount8*this.price8+this.amount9*this.price9
+			}
+		}
+	})
+</script>
+</body>
+</html>
